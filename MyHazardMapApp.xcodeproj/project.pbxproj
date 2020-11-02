@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A28F6598141A7C30402069BD /* Pods_MyHazardMapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */; };
 		B096FF32255052DF005CF370 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096FF31255052DF005CF370 /* RegisterViewController.swift */; };
+		B096FF3525507D9D005CF370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B096FF3425507D9D005CF370 /* GoogleService-Info.plist */; };
 		B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */; };
 		B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */; };
 		B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.release.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.release.xcconfig"; sourceTree = "<group>"; };
 		8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.debug.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B096FF31255052DF005CF370 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B096FF3425507D9D005CF370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0E2FDBC254D494000DC3D56 /* MyHazardMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHazardMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				B0E2FDC8254D494300DC3D56 /* Assets.xcassets */,
 				B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */,
 				B0E2FDCD254D494300DC3D56 /* Info.plist */,
+				B096FF3425507D9D005CF370 /* GoogleService-Info.plist */,
 				B096FF31255052DF005CF370 /* RegisterViewController.swift */,
 			);
 			path = MyHazardMapApp;
@@ -106,6 +109,7 @@
 				B0E2FDB9254D494000DC3D56 /* Frameworks */,
 				B0E2FDBA254D494000DC3D56 /* Resources */,
 				E7B81BA164478AED3B411E56 /* [CP] Copy Pods Resources */,
+				05AF612694223A9E0BE4438A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E2FDCC254D494300DC3D56 /* LaunchScreen.storyboard in Resources */,
+				B096FF3525507D9D005CF370 /* GoogleService-Info.plist in Resources */,
 				B0E2FDC9254D494300DC3D56 /* Assets.xcassets in Resources */,
 				B0E2FDC7254D494000DC3D56 /* Main.storyboard in Resources */,
 			);
@@ -162,6 +167,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05AF612694223A9E0BE4438A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A76FADD7CFDA79E5CD153468 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
