@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A28F6598141A7C30402069BD /* Pods_MyHazardMapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */; };
+		B096FF32255052DF005CF370 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096FF31255052DF005CF370 /* RegisterViewController.swift */; };
 		B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */; };
 		B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */; };
 		B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.release.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.release.xcconfig"; sourceTree = "<group>"; };
 		8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.debug.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B096FF31255052DF005CF370 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B0E2FDBC254D494000DC3D56 /* MyHazardMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHazardMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				B0E2FDC8254D494300DC3D56 /* Assets.xcassets */,
 				B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */,
 				B0E2FDCD254D494300DC3D56 /* Info.plist */,
+				B096FF31255052DF005CF370 /* RegisterViewController.swift */,
 			);
 			path = MyHazardMapApp;
 			sourceTree = "<group>";
@@ -88,7 +91,6 @@
 				8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */,
 				76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,6 +211,7 @@
 				B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */,
 				B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */,
 				B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */,
+				B096FF32255052DF005CF370 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
