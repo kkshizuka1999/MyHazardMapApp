@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A28F6598141A7C30402069BD /* Pods_MyHazardMapApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */; };
 		B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */; };
 		B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */; };
 		B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.release.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.release.xcconfig"; sourceTree = "<group>"; };
+		8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHazardMapApp.debug.xcconfig"; path = "Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E2FDBC254D494000DC3D56 /* MyHazardMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHazardMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		B0E2FDC8254D494300DC3D56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0E2FDCB254D494300DC3D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0E2FDCD254D494300DC3D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHazardMapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28F6598141A7C30402069BD /* Pods_MyHazardMapApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38432ED246A85A9F8B918879 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B0E2FDB3254D494000DC3D56 = {
 			isa = PBXGroup;
 			children = (
 				B0E2FDBE254D494000DC3D56 /* MyHazardMapApp */,
 				B0E2FDBD254D494000DC3D56 /* Products */,
+				BD22BF1E2D54E99F02B53F8C /* Pods */,
+				38432ED246A85A9F8B918879 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = MyHazardMapApp;
 			sourceTree = "<group>";
 		};
+		BD22BF1E2D54E99F02B53F8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */,
+				76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0E2FDD0254D494300DC3D56 /* Build configuration list for PBXNativeTarget "MyHazardMapApp" */;
 			buildPhases = (
+				A76FADD7CFDA79E5CD153468 /* [CP] Check Pods Manifest.lock */,
 				B0E2FDB8254D494000DC3D56 /* Sources */,
 				B0E2FDB9254D494000DC3D56 /* Frameworks */,
 				B0E2FDBA254D494000DC3D56 /* Resources */,
+				E7B81BA164478AED3B411E56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A76FADD7CFDA79E5CD153468 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyHazardMapApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7B81BA164478AED3B411E56 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyHazardMapApp/Pods-MyHazardMapApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B0E2FDB8254D494000DC3D56 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		B0E2FDD1254D494300DC3D56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B01DCED20D97AAE99E4B8BC /* Pods-MyHazardMapApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		B0E2FDD2254D494300DC3D56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76F1E292660E2B8F566069A1 /* Pods-MyHazardMapApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
