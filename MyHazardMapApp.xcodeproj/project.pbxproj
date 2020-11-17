@@ -12,7 +12,7 @@
 		B096FF3525507D9D005CF370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B096FF3425507D9D005CF370 /* GoogleService-Info.plist */; };
 		B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */; };
 		B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */; };
-		B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* ViewController.swift */; };
+		B0E2FDC4254D494000DC3D56 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* MapViewController.swift */; };
 		B0E2FDC7254D494000DC3D56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E2FDC5254D494000DC3D56 /* Main.storyboard */; };
 		B0E2FDC9254D494300DC3D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E2FDC8254D494300DC3D56 /* Assets.xcassets */; };
 		B0E2FDCC254D494300DC3D56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 		B0E2FDBC254D494000DC3D56 /* MyHazardMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHazardMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0E2FDC3254D494000DC3D56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0E2FDC3254D494000DC3D56 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B0E2FDC6254D494000DC3D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0E2FDC8254D494300DC3D56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0E2FDCB254D494300DC3D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,17 +75,25 @@
 		B0E2FDBE254D494000DC3D56 /* MyHazardMapApp */ = {
 			isa = PBXGroup;
 			children = (
+				B0F2F8DC2563FC2E00F2F542 /* viewcontrollers */,
 				B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */,
 				B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */,
-				B0E2FDC3254D494000DC3D56 /* ViewController.swift */,
 				B0E2FDC5254D494000DC3D56 /* Main.storyboard */,
 				B0E2FDC8254D494300DC3D56 /* Assets.xcassets */,
 				B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */,
 				B0E2FDCD254D494300DC3D56 /* Info.plist */,
 				B096FF3425507D9D005CF370 /* GoogleService-Info.plist */,
-				B096FF31255052DF005CF370 /* RegisterViewController.swift */,
 			);
 			path = MyHazardMapApp;
+			sourceTree = "<group>";
+		};
+		B0F2F8DC2563FC2E00F2F542 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				B0E2FDC3254D494000DC3D56 /* MapViewController.swift */,
+				B096FF31255052DF005CF370 /* RegisterViewController.swift */,
+			);
+			path = viewcontrollers;
 			sourceTree = "<group>";
 		};
 		BD22BF1E2D54E99F02B53F8C /* Pods */ = {
@@ -230,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0E2FDC4254D494000DC3D56 /* ViewController.swift in Sources */,
+				B0E2FDC4254D494000DC3D56 /* MapViewController.swift in Sources */,
 				B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */,
 				B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */,
 				B096FF32255052DF005CF370 /* RegisterViewController.swift in Sources */,

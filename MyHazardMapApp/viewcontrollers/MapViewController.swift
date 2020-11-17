@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     lazy var mapView = GMSMapView()
