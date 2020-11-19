@@ -1,13 +1,13 @@
 //
-//  RegisterViewController.swift
-//  MyHazardMapApp
+//  HomeViewController.swift
+//  CustomLonginDemo
 //
-//  Created by IKEchannel on 2020/11/02.
+//  Created by IKEchannel on 2020/11/07.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
