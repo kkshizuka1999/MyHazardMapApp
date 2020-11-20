@@ -18,7 +18,7 @@
 		B0F2F8F82564030B00F2F542 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8F42564030B00F2F542 /* SignUpViewController.swift */; };
 		B0F2F8F92564030B00F2F542 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8F52564030B00F2F542 /* LoginViewController.swift */; };
 		B0F2F8FA2564030B00F2F542 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8F62564030B00F2F542 /* HomeViewController.swift */; };
-		B0F2F8FB2564030B00F2F542 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8F72564030B00F2F542 /* ViewController.swift */; };
+		B0F2F8FB2564030B00F2F542 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8F72564030B00F2F542 /* FirstViewController.swift */; };
 		B0F2F9012564039200F2F542 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8FF2564039200F2F542 /* Constants.swift */; };
 		B0F2F9022564039200F2F542 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F9002564039200F2F542 /* Utilities.swift */; };
 /* End PBXBuildFile section */
@@ -38,7 +38,7 @@
 		B0F2F8F42564030B00F2F542 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B0F2F8F52564030B00F2F542 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B0F2F8F62564030B00F2F542 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B0F2F8F72564030B00F2F542 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0F2F8F72564030B00F2F542 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		B0F2F8FF2564039200F2F542 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0F2F9002564039200F2F542 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C300274E57C0F774B68B1723 /* Pods_MyHazardMapApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHazardMapApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +64,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B06492CD25678F2700DA10C5 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				B0E2FDC5254D494000DC3D56 /* Main.storyboard */,
+				B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		B0E2FDB3254D494000DC3D56 = {
 			isa = PBXGroup;
 			children = (
@@ -85,13 +94,12 @@
 		B0E2FDBE254D494000DC3D56 /* MyHazardMapApp */ = {
 			isa = PBXGroup;
 			children = (
+				B06492CD25678F2700DA10C5 /* StoryBoards */,
 				B0F2F8FE2564039200F2F542 /* Helpers */,
 				B0F2F8DC2563FC2E00F2F542 /* viewcontrollers */,
 				B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */,
 				B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */,
-				B0E2FDC5254D494000DC3D56 /* Main.storyboard */,
 				B0E2FDC8254D494300DC3D56 /* Assets.xcassets */,
-				B0E2FDCA254D494300DC3D56 /* LaunchScreen.storyboard */,
 				B0E2FDCD254D494300DC3D56 /* Info.plist */,
 				B096FF3425507D9D005CF370 /* GoogleService-Info.plist */,
 			);
@@ -105,7 +113,7 @@
 				B0F2F8F62564030B00F2F542 /* HomeViewController.swift */,
 				B0F2F8F52564030B00F2F542 /* LoginViewController.swift */,
 				B0F2F8F42564030B00F2F542 /* SignUpViewController.swift */,
-				B0F2F8F72564030B00F2F542 /* ViewController.swift */,
+				B0F2F8F72564030B00F2F542 /* FirstViewController.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -266,7 +274,7 @@
 				B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */,
 				B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */,
 				B0F2F8FA2564030B00F2F542 /* HomeViewController.swift in Sources */,
-				B0F2F8FB2564030B00F2F542 /* ViewController.swift in Sources */,
+				B0F2F8FB2564030B00F2F542 /* FirstViewController.swift in Sources */,
 				B0F2F9022564039200F2F542 /* Utilities.swift in Sources */,
 				B0F2F8F82564030B00F2F542 /* SignUpViewController.swift in Sources */,
 				B0F2F9012564039200F2F542 /* Constants.swift in Sources */,

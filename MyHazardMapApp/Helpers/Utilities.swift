@@ -26,6 +26,24 @@ class Utilities {
         
     }
     
+    static func styleTextView(_ textview: UITextView) {
+        // 枠のカラー
+        textview.layer.borderColor = UIColor.black.cgColor
+
+        // 枠の幅
+        textview.layer.borderWidth = 1.0
+
+        // 枠を角丸にする場合
+        textview.layer.cornerRadius = 10.0
+        textview.layer.masksToBounds = true
+    }
+    
+    static func styleImageButton(_ imagebutton: UIButton) {
+        imagebutton.layer.cornerRadius = 10
+        imagebutton.layer.borderWidth = 1
+        imagebutton.layer.borderColor = UIColor.black.cgColor
+    }
+    
     static func styleFilledButton(_ button: UIButton) {
         
         //Filled rounded corner style
