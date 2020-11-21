@@ -38,10 +38,14 @@ class Utilities {
         textview.layer.masksToBounds = true
     }
     
-    static func styleImageButton(_ imagebutton: UIButton) {
-        imagebutton.layer.cornerRadius = 10
-        imagebutton.layer.borderWidth = 1
-        imagebutton.layer.borderColor = UIColor.black.cgColor
+    static func styleStackView(_ stackView: UIStackView) {
+        stackView.layer.borderWidth = 1
+        stackView.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    static func styleImageView(_ imageView: UIImageView) {
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.black.cgColor
     }
     
     static func styleFilledButton(_ button: UIButton) {
