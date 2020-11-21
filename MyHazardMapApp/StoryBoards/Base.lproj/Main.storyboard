@@ -78,6 +78,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="vIy-NW-BAV"/>
                                                 </constraints>
                                                 <state key="normal" title="登録"/>
+                                                <connections>
+                                                    <action selector="RegisterButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="Fb3-az-4k2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-bB-tq2">
                                                 <rect key="frame" x="0.0" y="329.5" width="300" height="50"/>
