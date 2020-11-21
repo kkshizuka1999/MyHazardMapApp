@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,18 +47,24 @@
         <!--camera-->
         <scene sceneID="McZ-JB-SOt">
             <objects>
-                <viewController id="4qF-Cq-RnB" customClass="RegisterViewController" customModule="MyHazardMapApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4qF-Cq-RnB" customClass="addInformationViewController" customModule="MyHazardMapApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xoj-9s-daN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axc-xL-pBK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axc-xL-pBK">
                                 <rect key="frame" x="57" y="84" width="300" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="axc-xL-pBK" secondAttribute="height" multiplier="5:3" id="4lt-ag-m8j"/>
                                     <constraint firstAttribute="width" constant="300" id="PRD-Ap-uSW"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="camera.viewfinder" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="ImageButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="OxA-eq-Agb"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-gf-003">
                                 <rect key="frame" x="57" y="304" width="300" height="400"/>
@@ -72,7 +79,7 @@
                                         <rect key="frame" x="0.0" y="20.5" width="300" height="379.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hMg-iW-gBU">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="239.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="199.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,11 +88,14 @@
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-WG-OlG">
-                                                <rect key="frame" x="0.0" y="279.5" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="239.5" width="300" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="vIy-NW-BAV"/>
+                                                </constraints>
                                                 <state key="normal" title="登録"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-bB-tq2">
-                                                <rect key="frame" x="0.0" y="349.5" width="300" height="30"/>
+                                                <rect key="frame" x="0.0" y="329.5" width="300" height="50"/>
                                                 <state key="normal" title="キャンセル"/>
                                             </button>
                                         </subviews>
@@ -110,6 +120,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="camera" image="camera.fill" catalog="system" selectedImage="camera.fill" id="TKF-Ue-Aet"/>
+                    <connections>
+                        <outlet property="CancelButton" destination="Y22-bB-tq2" id="yAI-nS-jDm"/>
+                        <outlet property="ImageButton" destination="axc-xL-pBK" id="7iS-yY-c7X"/>
+                        <outlet property="RegisterButton" destination="Kgb-WG-OlG" id="2ea-er-Ae5"/>
+                        <outlet property="TextView" destination="hMg-iW-gBU" id="WBc-i1-Kjr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wah-H6-NbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,6 +377,7 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
