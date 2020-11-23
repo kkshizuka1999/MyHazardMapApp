@@ -35,6 +35,9 @@
                                 <rect key="frame" x="20" y="732" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="LogoutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFv-TK-lYd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -46,6 +49,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="Bvr-nW-kGv"/>
                     <connections>
+                        <outlet property="LogOutButton" destination="tUg-Zg-Nov" id="rXS-jk-6vO"/>
                         <outlet property="addInformationButton" destination="X1C-ov-W1R" id="S8J-bB-1cw"/>
                     </connections>
                 </viewController>

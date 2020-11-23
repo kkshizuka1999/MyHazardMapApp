@@ -12,6 +12,20 @@ import Firebase
 class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     @IBOutlet weak var addInformationButton: UIButton!
+    @IBOutlet weak var LogOutButton: UIButton!
+    
+    @IBAction func LogoutButtonTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let firstNavigationController = storyboard.instantiateViewController(withIdentifier: "FirstNavigationController")
+            firstNavigationController.modalPresentationStyle = .fullScreen
+            self.present(firstNavigationController, animated: true, completion: nil)
+        } catch {
+            print("ログアウト失敗\(error)")
+        }
+        
+    }
     
     private var users = [User]()
     
