@@ -120,7 +120,7 @@ class SignUpViewController: UIViewController {
                 }
                 
                 //Transition to the home screen
-                self.transitionToHome()
+                self.transitionToMap()
                     
                 }
             }
@@ -134,11 +134,12 @@ class SignUpViewController: UIViewController {
         
     }
     
-    func transitionToHome() {
+    func transitionToMap() {
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mapViewController = storyboard.instantiateViewController(identifier: "MapVC") as? MapViewController
         
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = mapViewController
         view.window?.makeKeyAndVisible()
         
     }

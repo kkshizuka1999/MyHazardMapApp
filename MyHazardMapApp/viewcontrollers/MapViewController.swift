@@ -7,10 +7,13 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
-    
+        
     @IBOutlet weak var addInformationButton: UIButton!
+    
+    private var users = [User]()
     
     var locationManager = CLLocationManager()
     lazy var mapView = GMSMapView()
@@ -35,6 +38,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(addInformationButton)
         self.view.sendSubviewToBack(mapView)
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            
+            fetchUserInfoFromFirestore()
+            
+        }
+        
+        private func fetchUserInfoFromFirestore() {
+            
+            Firestore.firestore().collection("users").getDocuments { (snapshots, err) in
+                if let err = err {
+                    print("user情報の取得に失敗しました\(err)")
+                    return
+                }
+                snapshots?.documents.forEach({ (snapshot) in
+                    let data = snapshot.data()
+                    let user = User.init(dic: data)
+                    
+                    self.users.append(user)
+                    
+                    self.users.forEach { (user) in
+                        print("firstname: ",user.firstname)
+                    }
+                    
+                })
+            }
+        }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

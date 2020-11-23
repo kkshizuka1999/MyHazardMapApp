@@ -93,9 +93,10 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     
-                    let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mapViewController = storyboard.instantiateViewController(identifier: "MapVC") as? MapViewController
                     
-                    self.view.window?.rootViewController = homeViewController
+                    self.view.window?.rootViewController = mapViewController
                     
                     self.view.window?.makeKeyAndVisible()
                     

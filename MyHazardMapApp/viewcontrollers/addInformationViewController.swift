@@ -32,6 +32,7 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
     
     @IBAction func RegisterButtonTapped(_ sender: Any) {
         saveToFireStore()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func CamButtonTapped(_ sender: Any) {
@@ -44,6 +45,12 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func CancelButtonTapped(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

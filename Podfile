@@ -13,6 +13,7 @@ target 'MyHazardMapApp' do
     pod 'Firebase/Core'
     pod 'FirebaseFirestore' 
     pod 'Firebase/Storage'
-    pod 'CropViewController'   
+    pod 'CropViewController'
+    pod 'PanModal'   
 
 end
