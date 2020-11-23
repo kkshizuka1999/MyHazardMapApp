@@ -10,12 +10,16 @@ import GoogleMaps
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var addInformationButton: UIButton!
+    
     var locationManager = CLLocationManager()
     lazy var mapView = GMSMapView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        setUpElements()
         
         let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
         mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
@@ -28,7 +32,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         self.view.addSubview(mapView)
-        self.view.bringSubviewToFront(mapView)
+        self.view.addSubview(addInformationButton)
+        self.view.sendSubviewToBack(mapView)
   }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -43,5 +48,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func setUpElements() {
+        
+        Utilities.styleAddInformationButton(addInformationButton)
+        
+    }
 }
 

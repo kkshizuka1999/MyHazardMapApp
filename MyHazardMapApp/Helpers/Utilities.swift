@@ -67,6 +67,15 @@ class Utilities {
         
     }
     
+    static func styleAddInformationButton(_ button: UIButton) {
+        button.layer.backgroundColor = UIColor.white.cgColor
+        button.layer.cornerRadius = 27.5
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 2
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+    }
+    
     static func isPasswordValid(_ password: String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
