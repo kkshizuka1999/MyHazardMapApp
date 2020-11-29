@@ -1,0 +1,146 @@
+//
+//  mapForAddViewController.swift
+//  MyHazardMapApp
+//
+//  Created by IKEchannel on 2020/11/28.
+//
+
+import UIKit
+import GoogleMaps
+import FirebaseFirestore
+import FirebaseStorage
+
+class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+    
+    var pickedImage :UIImage!
+    var placeName: String!
+    var information: String!
+    
+    @IBOutlet weak var registerButton: UIButton!
+    
+    
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        
+        saveToFireStore()
+        
+        transitionToMap()
+        
+    }
+    
+    var locationManager = CLLocationManager()
+    lazy var mapView = GMSMapView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        setUpElements()
+        
+        let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
+        mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
+        mapView.isMyLocationEnabled = true
+        
+        locationManager.delegate = self
+        mapView.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+        self.view.addSubview(mapView)
+        self.view.addSubview(registerButton)
+        self.view.sendSubviewToBack(mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        let marker = GMSMarker(position: coordinate)
+        marker.appearAnimation = .pop
+        marker.map = mapView
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation = locations.last
+        
+        let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude, longitude: userLocation!.coordinate.longitude, zoom: 17.0)
+        
+        self.mapView.animate(to: camera)
+        
+        locationManager.stopUpdatingLocation()
+        
+    }
+    
+    func setUpElements() {
+        
+        Utilities.styleFilledButton(registerButton)
+        
+    }
+    
+    fileprivate func upload(completed: @escaping(_ url: String?) -> Void) {
+        let date = NSDate()
+        let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
+        let storageRef = Storage.storage().reference().child("images").child("\(currentTimeStampInSecond).jpg")
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        if let uploadData = self.pickedImage?.jpegData(compressionQuality: 0.9) {
+            storageRef.putData(uploadData, metadata: metaData) { (metadata , error) in
+                if error != nil {
+                    completed(nil)
+                    print("error: \(String(describing: error?.localizedDescription))")
+                }
+                storageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        completed(nil)
+                        print("error: \(String(describing: error?.localizedDescription))")
+                    }
+                    completed(url?.absoluteString)
+                })
+            }
+        }
+    }
+    
+    fileprivate func saveToFireStore(){
+        var imageURL: [String : Any] = [:]
+        let detailInformation = information
+        let PlaceName = placeName
+        upload(){ url in
+            guard let url = url else { return }
+            imageURL["image"] = url
+            let saveDocument = Firestore.firestore().collection("informations").document()
+            saveDocument.setData([
+                "imageURL": imageURL,
+                "detailInformation": detailInformation as Any,
+                "PlaceName": PlaceName as Any,
+                "postID": saveDocument.documentID,
+                "createdAt": FieldValue.serverTimestamp(),
+                "updatedAt": FieldValue.serverTimestamp()
+            ]){ error in
+                if error != nil {
+                    print("error: \(String(describing: error?.localizedDescription))")
+                }
+                print("image saved!")
+            }
+        }
+    }
+    
+    func transitionToMap() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mapViewController = storyboard.instantiateViewController(identifier: "MapVC") as? MapViewController
+        
+        view.window?.rootViewController = mapViewController
+        view.window?.makeKeyAndVisible()
+        
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

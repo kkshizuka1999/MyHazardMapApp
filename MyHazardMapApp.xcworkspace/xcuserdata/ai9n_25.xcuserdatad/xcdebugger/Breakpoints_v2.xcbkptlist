@@ -18,6 +18,38 @@
             endingLineNumber = "14"
             landmarkName = "Storyboard"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "B1B7AC96-83EB-466A-8051-DD6600BE005D - b479d3d8a7e6190e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_B40832D7B48AFC872057B594ABC60193_func0"
+                  moduleName = "MyHazardMapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ai9n_25/Desktop/swift%E5%85%A5%E9%96%80/MyHazardMapApp/MyHazardMapApp/Helpers/Constants.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "B1B7AC96-83EB-466A-8051-DD6600BE005D - c064841dbd77a4a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHazardMapApp.Constants.Storyboard.mapViewController.unsafeMutableAddressor : Swift.String"
+                  moduleName = "MyHazardMapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ai9n_25/Desktop/swift%E5%85%A5%E9%96%80/MyHazardMapApp/MyHazardMapApp/Helpers/Constants.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

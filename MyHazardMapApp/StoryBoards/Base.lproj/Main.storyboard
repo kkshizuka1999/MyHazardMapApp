@@ -65,20 +65,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-gf-003">
-                                <rect key="frame" x="57" y="260" width="300" height="400"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-gf-003">
+                                <rect key="frame" x="57" y="260" width="300" height="500"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-g3-DL7">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-Pt-pn6">
-                                        <rect key="frame" x="0.0" y="20.5" width="300" height="379.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lWi-r5-3dD">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="54.5"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場所の名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-SQ-9Im">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GGT-Ls-xNB">
+                                                <rect key="frame" x="0.0" y="20.5" width="300" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-Pt-pn6">
+                                        <rect key="frame" x="0.0" y="74.5" width="300" height="285.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-g3-DL7">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hMg-iW-gBU">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="199.5"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="300" height="265"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,18 +102,24 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tr8-1K-1Og">
+                                        <rect key="frame" x="0.0" y="380" width="300" height="120"/>
+                                        <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-WG-OlG">
-                                                <rect key="frame" x="0.0" y="239.5" width="300" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="vIy-NW-BAV"/>
                                                 </constraints>
-                                                <state key="normal" title="登録"/>
+                                                <state key="normal" title="次へ"/>
                                                 <connections>
                                                     <action selector="RegisterButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="Fb3-az-4k2"/>
+                                                    <segue destination="aX9-Ff-tSU" kind="presentation" identifier="pushMapForAdd" modalPresentationStyle="fullScreen" id="cTP-GY-8RK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-bB-tq2">
-                                                <rect key="frame" x="0.0" y="329.5" width="300" height="50"/>
+                                                <rect key="frame" x="0.0" y="70" width="300" height="50"/>
                                                 <state key="normal" title="キャンセル"/>
                                                 <connections>
                                                     <action selector="CancelButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="Yw3-dp-Rtx"/>
@@ -105,13 +127,13 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Y22-bB-tq2" firstAttribute="height" secondItem="Kgb-WG-OlG" secondAttribute="height" id="48d-st-gpk"/>
+                                            <constraint firstItem="Y22-bB-tq2" firstAttribute="height" secondItem="Kgb-WG-OlG" secondAttribute="height" id="28G-r2-Cz5"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SSb-Pt-pn6" firstAttribute="centerX" secondItem="3TO-gf-003" secondAttribute="centerX" id="5tQ-2Y-3SY"/>
-                                    <constraint firstAttribute="height" constant="400" id="6Do-Iz-dbc"/>
+                                    <constraint firstAttribute="height" constant="500" id="6Do-Iz-dbc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="I5a-e9-nq3"/>
                                     <constraint firstAttribute="width" constant="300" id="LMY-Bt-W5g"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="TYP-ln-dVn"/>
@@ -172,11 +194,48 @@
                         <outlet property="RegisterButton" destination="Kgb-WG-OlG" id="2ea-er-Ae5"/>
                         <outlet property="StackViewforImage" destination="hlS-HU-UkV" id="d5G-48-sxx"/>
                         <outlet property="TextView" destination="hMg-iW-gBU" id="WBc-i1-Kjr"/>
+                        <outlet property="placeNameTextField" destination="GGT-Ls-xNB" id="IeZ-1H-EKn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wah-H6-NbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="570"/>
+        </scene>
+        <!--Map For Add View Controller-->
+        <scene sceneID="8wZ-bJ-p60">
+            <objects>
+                <viewController storyboardIdentifier="mapForAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aX9-Ff-tSU" customClass="mapForAddViewController" customModule="MyHazardMapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HZm-qV-dcm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-N2-1k8">
+                                <rect key="frame" x="57" y="742" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="fOu-5g-iAG"/>
+                                    <constraint firstAttribute="height" constant="50" id="z1N-XM-rIW"/>
+                                </constraints>
+                                <state key="normal" title="登録"/>
+                                <connections>
+                                    <action selector="registerButtonTapped:" destination="aX9-Ff-tSU" eventType="touchUpInside" id="6EQ-aH-qSl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fdD-Qd-cVR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dQQ-N2-1k8" firstAttribute="centerX" secondItem="HZm-qV-dcm" secondAttribute="centerX" id="oxt-61-ZaS"/>
+                            <constraint firstItem="fdD-Qd-cVR" firstAttribute="bottom" secondItem="dQQ-N2-1k8" secondAttribute="bottom" constant="70" id="pP7-m0-pZa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qha-bT-RVS"/>
+                    <connections>
+                        <outlet property="registerButton" destination="dQQ-N2-1k8" id="ada-v8-EK1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF6-HC-cew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887" y="570"/>
         </scene>
     </scenes>
     <resources>

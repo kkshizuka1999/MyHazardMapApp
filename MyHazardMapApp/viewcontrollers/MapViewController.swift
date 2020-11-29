@@ -8,9 +8,8 @@
 import UIKit
 import GoogleMaps
 import Firebase
-import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     @IBOutlet weak var addInformationButton: UIButton!
     @IBOutlet weak var LogOutButton: UIButton!
@@ -45,7 +44,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         mapView.isMyLocationEnabled = true
         
         locationManager.delegate = self
-        mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -84,11 +82,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 })
             }
         }
-    
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        let marker = GMSMarker(position: coordinate)
-        marker.map = mapView
-    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

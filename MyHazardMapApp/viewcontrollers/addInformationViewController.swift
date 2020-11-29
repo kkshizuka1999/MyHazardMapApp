@@ -14,6 +14,8 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
     
     @IBOutlet weak var StackViewforImage: UIStackView!
     
+    @IBOutlet weak var placeNameTextField: UITextField!
+    
     @IBOutlet weak var ImageView: UIImageView!
     
     @IBOutlet weak var CameraButton: UIButton!
@@ -31,8 +33,9 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
     var image: UIImage?
     
     @IBAction func RegisterButtonTapped(_ sender: Any) {
-        saveToFireStore()
-        dismiss(animated: true, completion: nil)
+        
+        self.performSegue(withIdentifier: "pushMapForAdd", sender: nil)
+        
     }
     
     @IBAction func CamButtonTapped(_ sender: Any) {
@@ -59,6 +62,16 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
         dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushMapForAdd" {
+            let vc = segue.destination as? mapForAddViewController
+            // 遷移先のクラスのプロパティに値を代入する
+            vc?.pickedImage = ImageView.image
+            vc?.placeName = placeNameTextField.text
+            vc?.information = TextView.text
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,51 +92,6 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
         Utilities.styleImageView(ImageView)
         Utilities.styleFilledButton(RegisterButton)
         Utilities.styleHollowButton(CancelButton)
-    }
-    
-    fileprivate func upload(completed: @escaping(_ url: String?) -> Void) {
-        let date = NSDate()
-        let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
-        let storageRef = Storage.storage().reference().child("images").child("\(currentTimeStampInSecond).jpg")
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        if let uploadData = self.ImageView.image?.jpegData(compressionQuality: 0.9) {
-            storageRef.putData(uploadData, metadata: metaData) { (metadata , error) in
-                if error != nil {
-                    completed(nil)
-                    print("error: \(String(describing: error?.localizedDescription))")
-                }
-                storageRef.downloadURL(completion: { (url, error) in
-                    if error != nil {
-                        completed(nil)
-                        print("error: \(String(describing: error?.localizedDescription))")
-                    }
-                    completed(url?.absoluteString)
-                })
-            }
-        }
-    }
-    
-    fileprivate func saveToFireStore(){
-        var imageURL: [String : Any] = [:]
-        let content = TextView.text
-        upload(){ url in
-            guard let url = url else { return }
-            imageURL["image"] = url
-            let saveDocument = Firestore.firestore().collection("informations").document()
-            saveDocument.setData([
-                "imageURL": imageURL,
-                "content": content as Any,
-                "postID": saveDocument.documentID,
-                "createdAt": FieldValue.serverTimestamp(),
-                "updatedAt": FieldValue.serverTimestamp()
-            ]){ error in
-                if error != nil {
-                    print("error: \(String(describing: error?.localizedDescription))")
-                }
-                print("image saved!")
-            }
-        }
     }
 }
     
