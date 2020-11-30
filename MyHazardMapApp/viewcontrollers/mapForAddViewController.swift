@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    var img_url :String!
     var pickedImage :UIImage!
     var placeName: String!
     var information: String!
@@ -105,17 +106,17 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     }
     
     fileprivate func saveToFireStore(){
-        var imageURL: [String : Any] = [:]
+        var Image_URL = img_url
         let detailInformation = information
         let PlaceName = placeName
         let markerLatitude = latitude
         let markerLongitude = longitude
         upload(){ url in
             guard let url = url else { return }
-            imageURL["image"] = url
+            Image_URL = url
             let saveDocument = Firestore.firestore().collection("informations").document()
             saveDocument.setData([
-                "imageURL": imageURL,
+                "imageURL": Image_URL as Any,
                 "detailInformation": detailInformation as Any,
                 "PlaceName": PlaceName as Any,
                 "PlaceLatitude": markerLatitude as Any,
