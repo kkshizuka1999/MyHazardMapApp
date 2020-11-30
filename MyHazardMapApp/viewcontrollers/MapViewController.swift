@@ -27,7 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    private var users = [User]()
+    private var informations = [Information]()
     
     var locationManager = CLLocationManager()
     lazy var mapView = GMSMapView()
@@ -52,6 +52,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(addInformationButton)
         self.view.sendSubviewToBack(mapView)
         
+        /////////
+        
+        
   }
     
 
@@ -64,21 +67,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         private func fetchUserInfoFromFirestore() {
             
-            Firestore.firestore().collection("users").getDocuments { (snapshots, err) in
+            Firestore.firestore().collection("informations").getDocuments { (snapshots, err) in
                 if let err = err {
-                    print("user情報の取得に失敗しました\(err)")
+                    print("informations情報の取得に失敗しました\(err)")
                     return
                 }
                 snapshots?.documents.forEach({ (snapshot) in
                     let data = snapshot.data()
-                    let user = User.init(dic: data)
+                    let information = Information.init(dic: data)
                     
-                    self.users.append(user)
+                    self.informations.append(information)
                     
-                    self.users.forEach { (user) in
-                        print("firstname: ",user.firstname)
+                    self.informations.forEach { (information) in
+                        print("PlaceLatitude: ", information.PlaceLatitude,
+                              "PlaceLongitude: ", information.PlaceLongitude,
+                              "PlaceName: ", information.PlaceName,
+                              "createdAt: ", information.createdAt,
+                              "detailInformation: ", information.detailInformation,
+                              "imageURL: ", information.imageURL,
+                              "postID: ", information.postID,
+                              "updatedAt: ", information.updatedAt)
                     }
-                    
                 })
             }
         }

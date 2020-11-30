@@ -15,6 +15,8 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     var pickedImage :UIImage!
     var placeName: String!
     var information: String!
+    var latitude: String!
+    var longitude: String!
     
     @IBOutlet weak var registerButton: UIButton!
     
@@ -53,7 +55,10 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     }
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
         let marker = GMSMarker(position: coordinate)
+        latitude = String(coordinate.latitude)
+        longitude = String(coordinate.longitude)
         marker.appearAnimation = .pop
         marker.map = mapView
     }
@@ -103,6 +108,8 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         var imageURL: [String : Any] = [:]
         let detailInformation = information
         let PlaceName = placeName
+        let markerLatitude = latitude
+        let markerLongitude = longitude
         upload(){ url in
             guard let url = url else { return }
             imageURL["image"] = url
@@ -111,6 +118,8 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 "imageURL": imageURL,
                 "detailInformation": detailInformation as Any,
                 "PlaceName": PlaceName as Any,
+                "PlaceLatitude": markerLatitude as Any,
+                "PlaceLongitude": markerLongitude as Any,
                 "postID": saveDocument.documentID,
                 "createdAt": FieldValue.serverTimestamp(),
                 "updatedAt": FieldValue.serverTimestamp()
