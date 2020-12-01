@@ -37,6 +37,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
         
         setUpElements()
+        fetchUserInfoFromFirestore()
+
         
         let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
         mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
@@ -52,7 +54,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(addInformationButton)
         self.view.sendSubviewToBack(mapView)
         
-        /////////
         
         
   }
@@ -79,14 +80,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     self.informations.append(information)
                     
                     self.informations.forEach { (information) in
-                        print("PlaceLatitude: ", information.PlaceLatitude,
-                              "PlaceLongitude: ", information.PlaceLongitude,
-                              "PlaceName: ", information.PlaceName,
-                              "createdAt: ", information.createdAt,
-                              "detailInformation: ", information.detailInformation,
-                              "imageURL: ", information.imageURL,
-                              "postID: ", information.postID,
-                              "updatedAt: ", information.updatedAt)
+                        
+                        let doubleLatitude = Double(information.PlaceLatitude)
+                        let doubleLongitude = Double(information.PlaceLongitude)
+                        
+                        let position = CLLocationCoordinate2D(latitude: doubleLatitude ?? 0, longitude: doubleLongitude ?? 0)
+                        let marker = GMSMarker(position: position)
+                        marker.map = self.mapView
+                        
                     }
                 })
             }
