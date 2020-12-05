@@ -48,6 +48,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="Bvr-nW-kGv"/>
+                    <navigationItem key="navigationItem" id="PGg-wR-Yo1"/>
                     <connections>
                         <outlet property="LogOutButton" destination="tUg-Zg-Nov" id="rXS-jk-6vO"/>
                         <outlet property="addInformationButton" destination="X1C-ov-W1R" id="S8J-bB-1cw"/>
@@ -218,6 +219,7 @@
                                 <state key="normal" title="登録"/>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="aX9-Ff-tSU" eventType="touchUpInside" id="6EQ-aH-qSl"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="TransitionToMap" modalPresentationStyle="fullScreen" id="Y3s-vO-cZT"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -21,12 +21,11 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     
     @IBOutlet weak var registerButton: UIButton!
     
-    
     @IBAction func registerButtonTapped(_ sender: Any) {
         
         saveToFireStore()
         
-        transitionToMap()
+        self.performSegue(withIdentifier: "TransitionToMap", sender: self)
         
     }
     

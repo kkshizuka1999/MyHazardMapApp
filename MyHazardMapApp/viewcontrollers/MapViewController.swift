@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 import Firebase
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
         
     @IBOutlet weak var addInformationButton: UIButton!
     @IBOutlet weak var LogOutButton: UIButton!
@@ -46,6 +46,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.isMyLocationEnabled = true
         
         locationManager.delegate = self
+        mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -54,16 +55,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(addInformationButton)
         self.view.sendSubviewToBack(mapView)
         
-        
-        
   }
     
-
-    
     override func viewWillAppear(_ animated: Bool) {
-            
-            fetchUserInfoFromFirestore()
-            
+        
+        fetchUserInfoFromFirestore()
+        super.viewWillAppear(animated)
+
         }
         
         private func fetchUserInfoFromFirestore() {
@@ -81,17 +79,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     
                     self.informations.forEach { (information) in
                         
+                        let postID = information.postID
                         let doubleLatitude = Double(information.PlaceLatitude)
                         let doubleLongitude = Double(information.PlaceLongitude)
-                        
                         let position = CLLocationCoordinate2D(latitude: doubleLatitude ?? 0, longitude: doubleLongitude ?? 0)
                         let marker = GMSMarker(position: position)
+                        marker.title = postID
                         marker.map = self.mapView
                         
                     }
                 })
             }
         }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("markerID: ", marker.title ?? "")
+        
+        Firestore.firestore().collection("informations").document(marker.title ?? "").getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        return true
+        
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
