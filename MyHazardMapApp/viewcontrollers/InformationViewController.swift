@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 
 class InformationViewController: UIViewController {
     
@@ -23,6 +24,9 @@ class InformationViewController: UIViewController {
             if let document = document, document.exists {
                 let dataDescription = document.data()
                 let information = Information.init(dic: dataDescription ?? [:])
+                let url = URL(string: information.imageURL)
+                
+                Nuke.loadImage(with: url!, into: self.testImageView)
                 
                 self.testtextview.text = information.PlaceName
                 

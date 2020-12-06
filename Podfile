@@ -15,5 +15,6 @@ target 'MyHazardMapApp' do
     pod 'Firebase/Storage'
     pod 'CropViewController'
     pod 'PanModal'   
+    pod 'Nuke'
 
 end
