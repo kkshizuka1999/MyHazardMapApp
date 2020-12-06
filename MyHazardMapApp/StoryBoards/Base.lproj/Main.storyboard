@@ -52,11 +52,46 @@
                     <connections>
                         <outlet property="LogOutButton" destination="tUg-Zg-Nov" id="rXS-jk-6vO"/>
                         <outlet property="addInformationButton" destination="X1C-ov-W1R" id="S8J-bB-1cw"/>
+                        <segue destination="hYv-xe-CLU" kind="show" identifier="pushMarker" id="XET-15-tpj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-72" y="570"/>
+        </scene>
+        <!--Information View Controller-->
+        <scene sceneID="Q6f-v5-G0l">
+            <objects>
+                <viewController id="hYv-xe-CLU" customClass="InformationViewController" customModule="MyHazardMapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3U-PN-ssb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eQg-ge-duY">
+                                <rect key="frame" x="87" y="357" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ZB-ML-I7e">
+                                <rect key="frame" x="87" y="111" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hMe-Si-P7D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MZi-vN-PtY"/>
+                    <connections>
+                        <outlet property="testImageView" destination="6ZB-ML-I7e" id="Cbp-MG-y6Z"/>
+                        <outlet property="testtextview" destination="eQg-ge-duY" id="wDj-IH-JEH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrM-GO-nFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72.463768115942031" y="1344.6428571428571"/>
         </scene>
         <!--camera-->
         <scene sceneID="McZ-JB-SOt">

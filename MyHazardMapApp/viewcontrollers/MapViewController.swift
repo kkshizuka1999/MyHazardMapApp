@@ -10,7 +10,9 @@ import GoogleMaps
 import Firebase
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
-        
+    
+    var idToSend: String!
+    
     @IBOutlet weak var addInformationButton: UIButton!
     @IBOutlet weak var LogOutButton: UIButton!
     
@@ -93,19 +95,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("markerID: ", marker.title ?? "")
         
-        Firestore.firestore().collection("informations").document(marker.title ?? "").getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
-            }
-        }
+        idToSend = marker.title
+        
+        self.performSegue(withIdentifier: "pushMarker", sender: nil)
         
         return true
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushMarker" {
+            let vc = segue.destination as? InformationViewController
+            // 遷移先のクラスのプロパティに値を代入する
+            vc?.markerID = idToSend
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
