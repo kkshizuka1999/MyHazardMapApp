@@ -39,8 +39,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // Do any additional setup after loading the view.
         
         setUpElements()
-        fetchUserInfoFromFirestore()
-
         
         let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
         mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
@@ -57,24 +55,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.view.addSubview(addInformationButton)
         self.view.sendSubviewToBack(mapView)
         
-  }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
         fetchUserInfoFromFirestore()
         super.viewWillAppear(animated)
-
-        }
         
-        private func fetchUserInfoFromFirestore() {
-            
-            Firestore.firestore().collection("informations").getDocuments { (snapshots, err) in
-                if let err = err {
-                    print("informations情報の取得に失敗しました\(err)")
-                    return
-                }
-                snapshots?.documents.forEach({ (snapshot) in
-                    let data = snapshot.data()
+    }
+    
+    private func fetchUserInfoFromFirestore() {
+        
+        Firestore.firestore().collection("informations").addSnapshotListener { (snapshots, err) in
+            if let err = err {
+                print("informations情報の取得に失敗しました\(err)")
+                return
+            }
+            snapshots?.documentChanges.forEach({ (documentCange) in
+                
+                switch documentCange.type {
+                case .added:
+                    let data = documentCange.document.data()
                     let information = Information.init(dic: data)
                     
                     self.informations.append(information)
@@ -86,13 +87,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         let doubleLongitude = Double(information.PlaceLongitude)
                         let position = CLLocationCoordinate2D(latitude: doubleLatitude ?? 0, longitude: doubleLongitude ?? 0)
                         let marker = GMSMarker(position: position)
-                        marker.title = postID
-                        marker.map = self.mapView
+                        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+                        
+                        if information.userId == currentUserId {
+                            
+                            marker.title = postID
+                            marker.map = self.mapView
+                            
+                        } else {
+                            
+                            return
+                            
+                        }
                         
                     }
-                })
-            }
+                case .modified, .removed:
+                    print("nothing to do")
+                }
+            })
         }
+    }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         

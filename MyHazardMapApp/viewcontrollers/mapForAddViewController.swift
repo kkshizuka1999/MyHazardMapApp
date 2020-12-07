@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
@@ -110,6 +111,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         let PlaceName = placeName
         let markerLatitude = latitude
         let markerLongitude = longitude
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         upload(){ url in
             guard let url = url else { return }
             Image_URL = url
@@ -122,7 +124,8 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 "PlaceLongitude": markerLongitude as Any,
                 "postID": saveDocument.documentID,
                 "createdAt": FieldValue.serverTimestamp(),
-                "updatedAt": FieldValue.serverTimestamp()
+                "updatedAt": FieldValue.serverTimestamp(),
+                "UserID": userID as Any
             ]){ error in
                 if error != nil {
                     print("error: \(String(describing: error?.localizedDescription))")

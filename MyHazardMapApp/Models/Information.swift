@@ -18,6 +18,7 @@ class Information {
     let imageURL: String
     let postID: String
     let updatedAt: Timestamp
+    let userId: String
     
     init(dic: [String: Any]) {
         
@@ -29,6 +30,7 @@ class Information {
         self.imageURL = dic["imageURL"] as? String ?? ""
         self.postID = dic["postID"] as? String ?? ""
         self.updatedAt = dic["updatedAt"] as? Timestamp ?? Timestamp()
+        self.userId = dic["UserID"] as? String ?? ""
     }
     
 }
