@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>400251446718-hq7bn9kfp3srqfis1r92ueem7dpgn2s9.apps.googleusercontent.com</string>
+	<string>157395926148-jtk0jir1erlpbp8eh69j9l9ojdua9bob.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.400251446718-hq7bn9kfp3srqfis1r92ueem7dpgn2s9</string>
+	<string>com.googleusercontent.apps.157395926148-jtk0jir1erlpbp8eh69j9l9ojdua9bob</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAW6t_aa5kDXBDbvDgN671O6Sai2hf1U9s</string>
+	<string>AIzaSyDIlUCD1fsq3qOdEoPX15OBQ4I-x6D_P3U</string>
 	<key>GCM_SENDER_ID</key>
-	<string>400251446718</string>
+	<string>157395926148</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>IKEchannel.MyHazardMapApp</string>
 	<key>PROJECT_ID</key>
-	<string>myhazardmapapp</string>
+	<string>myhazardmap2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>myhazardmapapp.appspot.com</string>
+	<string>myhazardmap2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:400251446718:ios:950df93e22f3763a9d05ef</string>
-	<key>DATABASE_URL</key>
-	<string>https://myhazardmapapp.firebaseio.com</string>
+	<string>1:157395926148:ios:bebe8ab9a60c6b9d50d6d1</string>
 </dict>
 </plist>

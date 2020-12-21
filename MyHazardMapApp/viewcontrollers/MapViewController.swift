@@ -8,6 +8,8 @@
 import UIKit
 import GoogleMaps
 import Firebase
+import FirebaseFirestore
+import FirebaseStorage
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -92,6 +94,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                         if information.userId == currentUserId {
                             
                             marker.title = postID
+                            marker.appearAnimation = .pop
                             marker.map = self.mapView
                             
                         } else {
@@ -112,14 +115,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         idToSend = marker.title
         
-        self.performSegue(withIdentifier: "pushMarker", sender: nil)
+        self.performSegue(withIdentifier: "MarkerTaped", sender: nil)
         
         return true
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pushMarker" {
+        if segue.identifier == "MarkerTaped" {
             let vc = segue.destination as? InformationViewController
             // 遷移先のクラスのプロパティに値を代入する
             vc?.markerID = idToSend

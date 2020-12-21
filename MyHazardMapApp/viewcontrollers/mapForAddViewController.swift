@@ -30,7 +30,10 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
     }
     
+    private var informations = [Information]()
+    
     var locationManager = CLLocationManager()
+    
     lazy var mapView = GMSMapView()
 
     override func viewDidLoad() {
@@ -54,6 +57,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         self.view.addSubview(registerButton)
         self.view.sendSubviewToBack(mapView)
     }
+    
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         mapView.clear()

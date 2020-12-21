@@ -13,12 +13,21 @@ class InformationViewController: UIViewController {
     
     var markerID: String!
 
-    @IBOutlet weak var testtextview: UITextView!
+    @IBOutlet weak var stackViewForInformation: UIStackView!
     
-    @IBOutlet weak var testImageView: UIImageView!
+    @IBOutlet weak var textview: UITextView!
+    
+    @IBOutlet weak var ImageView: UIImageView!
+    
+    @IBOutlet weak var placename: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpElements()
+        
+        textview.isEditable = false
+        textview.isSelectable = false
         
         Firestore.firestore().collection("informations").document(markerID ?? "").getDocument { (document, error) in
             if let document = document, document.exists {
@@ -26,10 +35,11 @@ class InformationViewController: UIViewController {
                 let information = Information.init(dic: dataDescription ?? [:])
                 let url = URL(string: information.imageURL)
                 
-                Nuke.loadImage(with: url!, into: self.testImageView)
+                Nuke.loadImage(with: url!, into: self.ImageView)
                 
-                self.testtextview.text = information.PlaceName
+                self.placename.text = information.PlaceName
                 
+                self.textview.text = information.detailInformation
                 
             } else {
                 print("Document does not exist")
@@ -38,6 +48,14 @@ class InformationViewController: UIViewController {
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpElements() {
+        
+        // Style the elements
+        Utilities.styleTextView(textview)
+        Utilities.styleImageView(ImageView)
+
     }
     
 

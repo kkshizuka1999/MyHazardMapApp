@@ -13,8 +13,8 @@
 		B03F801125727C78002332A5 /* mapForAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F801025727C78002332A5 /* mapForAddViewController.swift */; };
 		B03F80162574D5A9002332A5 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F80152574D5A8002332A5 /* Information.swift */; };
 		B03F801C257D3BDF002332A5 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F801B257D3BDF002332A5 /* InformationViewController.swift */; };
+		B03F80432590A105002332A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B03F80422590A105002332A5 /* GoogleService-Info.plist */; };
 		B04E2EC32568A3D5003D35B5 /* addInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E2EC22568A3D5003D35B5 /* addInformationViewController.swift */; };
-		B096FF3525507D9D005CF370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B096FF3425507D9D005CF370 /* GoogleService-Info.plist */; };
 		B0E2FDC0254D494000DC3D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */; };
 		B0E2FDC2254D494000DC3D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */; };
 		B0E2FDC4254D494000DC3D56 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2FDC3254D494000DC3D56 /* MapViewController.swift */; };
@@ -36,8 +36,8 @@
 		B03F801025727C78002332A5 /* mapForAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapForAddViewController.swift; sourceTree = "<group>"; };
 		B03F80152574D5A8002332A5 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		B03F801B257D3BDF002332A5 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		B03F80422590A105002332A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04E2EC22568A3D5003D35B5 /* addInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addInformationViewController.swift; sourceTree = "<group>"; };
-		B096FF3425507D9D005CF370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0E2FDBC254D494000DC3D56 /* MyHazardMapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHazardMapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E2FDBF254D494000DC3D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				B0E2FDC1254D494000DC3D56 /* SceneDelegate.swift */,
 				B0E2FDC8254D494300DC3D56 /* Assets.xcassets */,
 				B0E2FDCD254D494300DC3D56 /* Info.plist */,
-				B096FF3425507D9D005CF370 /* GoogleService-Info.plist */,
+				B03F80422590A105002332A5 /* GoogleService-Info.plist */,
 			);
 			path = MyHazardMapApp;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E2FDCC254D494300DC3D56 /* LaunchScreen.storyboard in Resources */,
-				B096FF3525507D9D005CF370 /* GoogleService-Info.plist in Resources */,
+				B03F80432590A105002332A5 /* GoogleService-Info.plist in Resources */,
 				B0E2FDC9254D494300DC3D56 /* Assets.xcassets in Resources */,
 				B0E2FDC7254D494000DC3D56 /* Main.storyboard in Resources */,
 				B03C527F256C073800B7D3C3 /* SignUp.storyboard in Resources */,
@@ -456,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HJR6LL3WM;
 				INFOPLIST_FILE = MyHazardMapApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,6 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HJR6LL3WM;
 				INFOPLIST_FILE = MyHazardMapApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
