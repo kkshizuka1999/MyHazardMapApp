@@ -24,7 +24,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IZl-Qc-xxh"/>
                                         </constraints>
-                                        <state key="normal" title="Sign Up"/>
+                                        <state key="normal" title="ユーザーとうろく"/>
                                         <connections>
                                             <segue destination="Vfw-ej-rE5" kind="show" id="MG9-2B-3az"/>
                                         </connections>
@@ -34,7 +34,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qf3-Q1-Ju5"/>
                                         </constraints>
-                                        <state key="normal" title="Login"/>
+                                        <state key="normal" title="ログイン"/>
                                         <connections>
                                             <segue destination="V5A-xc-lMp" kind="show" id="XMI-9q-HDV"/>
                                         </connections>
@@ -74,12 +74,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t9G-Yw-69C">
                                 <rect key="frame" x="40" y="128" width="334" height="230.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-fK-hsW">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-fK-hsW">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2e-wd-XGG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2e-wd-XGG">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -89,12 +89,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="h4R-3d-ZP9"/>
                                         </constraints>
-                                        <state key="normal" title="Login"/>
+                                        <state key="normal" title="ログイン"/>
                                         <connections>
                                             <action selector="LoginTaped:" destination="V5A-xc-lMp" eventType="touchUpInside" id="uCG-jX-tD8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-6m-TgI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エラー" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-6m-TgI">
                                         <rect key="frame" x="0.0" y="210" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -115,7 +115,9 @@
                             <constraint firstItem="GBS-Sx-T6l" firstAttribute="trailing" secondItem="t9G-Yw-69C" secondAttribute="trailing" constant="40" id="wAl-Ja-GLH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="s8g-P6-MtD"/>
+                    <navigationItem key="navigationItem" id="s8g-P6-MtD">
+                        <barButtonItem key="backBarButtonItem" title="もどる" id="faH-Ed-zjq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="EmailTextField" destination="q1o-fK-hsW" id="dhk-gd-xQD"/>
                         <outlet property="ErrorLabel" destination="hcp-6m-TgI" id="MlC-Gq-naI"/>
@@ -138,22 +140,22 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Xa-cn-vY1">
                                 <rect key="frame" x="40" y="128" width="334" height="370.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN8-6O-mRa">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="なまえ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN8-6O-mRa">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COC-vr-0Hd">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="みょうじ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COC-vr-0Hd">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BiJ-ha-wY6">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BiJ-ha-wY6">
                                         <rect key="frame" x="0.0" y="140" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-Ax-WWc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-Ax-WWc">
                                         <rect key="frame" x="0.0" y="210" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -163,12 +165,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="19K-Q5-DFD"/>
                                         </constraints>
-                                        <state key="normal" title="Sign Up"/>
+                                        <state key="normal" title="とうろく"/>
                                         <connections>
                                             <action selector="SignUpTaped:" destination="Vfw-ej-rE5" eventType="touchUpInside" id="zZk-Ei-sIY"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHA-BA-EkA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エラー" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHA-BA-EkA">
                                         <rect key="frame" x="0.0" y="350" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -191,7 +193,9 @@
                             <constraint firstItem="1Xa-cn-vY1" firstAttribute="top" secondItem="4n9-ds-41m" secondAttribute="top" constant="40" id="aRd-8m-qMK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jcG-bE-T2a"/>
+                    <navigationItem key="navigationItem" id="jcG-bE-T2a">
+                        <barButtonItem key="backBarButtonItem" title="もどる" id="3Xk-Og-oEW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="EmailTextField" destination="BiJ-ha-wY6" id="iWJ-2l-HW2"/>
                         <outlet property="ErrorLabel" destination="jHA-BA-EkA" id="ioM-QC-2Rd"/>
@@ -208,7 +212,6 @@
         <!--login-->
         <scene sceneID="evn-ee-LBT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bv3-YC-04e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="FirstNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Uiw-Ms-pnv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="login" image="person.crop.circle.fill" catalog="system" id="gyR-Aa-tIi"/>
                     <toolbarItems/>
@@ -221,6 +224,7 @@
                         <segue destination="WcT-gb-5nq" kind="relationship" relationship="rootViewController" id="edD-dv-8yi"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bv3-YC-04e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-72" y="1848"/>
         </scene>

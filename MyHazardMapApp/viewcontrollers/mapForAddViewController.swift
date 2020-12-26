@@ -21,6 +21,12 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     var longitude: String!
     
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBAction func tappedBackButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func registerButtonTapped(_ sender: Any) {
         
@@ -58,6 +64,15 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         self.view.sendSubviewToBack(mapView)
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
+    // 回転方向の指定
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         mapView.clear()
@@ -83,6 +98,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     func setUpElements() {
         
         Utilities.styleFilledButton(registerButton)
+        Utilities.styleLogOutButton(backButton)
         
     }
     

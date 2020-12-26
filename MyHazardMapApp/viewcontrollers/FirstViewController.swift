@@ -28,8 +28,14 @@ class FirstViewController: UIViewController {
         
     }
     
-    
+    override var shouldAutorotate: Bool {
+        return true
+    }
 
+    // 回転方向の指定
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 
 }
 

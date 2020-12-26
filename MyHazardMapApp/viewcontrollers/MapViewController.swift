@@ -66,6 +66,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
+    // 回転方向の指定
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     private func fetchUserInfoFromFirestore() {
         
         Firestore.firestore().collection("informations").addSnapshotListener { (snapshots, err) in
@@ -144,6 +153,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func setUpElements() {
         
         Utilities.styleAddInformationButton(addInformationButton)
+        Utilities.styleLogOutButton(LogOutButton)
         
     }
 }

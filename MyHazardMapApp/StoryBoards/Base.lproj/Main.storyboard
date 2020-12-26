@@ -28,13 +28,15 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4qF-Cq-RnB" kind="show" id="Rdh-8S-an8"/>
+                                    <segue destination="4qF-Cq-RnB" kind="presentation" modalPresentationStyle="fullScreen" id="Rdh-8S-an8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-Zg-Nov">
-                                <rect key="frame" x="20" y="732" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-Zg-Nov">
+                                <rect key="frame" x="20" y="64" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tUg-Zg-Nov" secondAttribute="height" multiplier="3:1" id="Xo8-Ov-0Nt"/>
+                                </constraints>
+                                <state key="normal" title="ログアウト"/>
                                 <connections>
                                     <action selector="LogoutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFv-TK-lYd"/>
                                 </connections>
@@ -44,6 +46,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X1C-ov-W1R" secondAttribute="bottom" constant="100" id="9gq-jm-G7V"/>
+                            <constraint firstItem="tUg-Zg-Nov" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Hgd-ht-3kX"/>
+                            <constraint firstItem="tUg-Zg-Nov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VUo-Bb-T0P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X1C-ov-W1R" secondAttribute="trailing" constant="10" id="btQ-a4-w0U"/>
                         </constraints>
                     </view>
@@ -64,16 +68,16 @@
             <objects>
                 <viewController id="4qF-Cq-RnB" customClass="addInformationViewController" customModule="MyHazardMapApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xoj-9s-daN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-gf-003">
-                                <rect key="frame" x="57" y="260" width="300" height="500"/>
+                                <rect key="frame" x="57" y="304" width="300" height="500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lWi-r5-3dD">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="54.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場所の名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-SQ-9Im">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-SQ-9Im">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -89,7 +93,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-Pt-pn6">
                                         <rect key="frame" x="0.0" y="74.5" width="300" height="285.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-g3-DL7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あぶない理由" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-g3-DL7">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -114,7 +118,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="vIy-NW-BAV"/>
                                                 </constraints>
-                                                <state key="normal" title="次へ"/>
+                                                <state key="normal" title="つぎへ"/>
                                                 <connections>
                                                     <action selector="RegisterButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="Fb3-az-4k2"/>
                                                     <segue destination="aX9-Ff-tSU" kind="presentation" identifier="pushMapForAdd" modalPresentationStyle="fullScreen" id="cTP-GY-8RK"/>
@@ -142,7 +146,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hlS-HU-UkV">
-                                <rect key="frame" x="57" y="40" width="300" height="180"/>
+                                <rect key="frame" x="57" y="84" width="300" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Szr-8P-GHa">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="148"/>
@@ -152,7 +156,10 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L1-h0-pG1">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="22"/>
-                                                <state key="normal" image="camera.fill" catalog="system"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                <state key="normal" image="camera.fill" catalog="system">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="CamButtonTapped:" destination="4qF-Cq-RnB" eventType="touchUpInside" id="hSE-UH-IC5"/>
                                                 </connections>
@@ -217,28 +224,41 @@
                                     <constraint firstAttribute="width" constant="300" id="fOu-5g-iAG"/>
                                     <constraint firstAttribute="height" constant="50" id="z1N-XM-rIW"/>
                                 </constraints>
-                                <state key="normal" title="登録"/>
+                                <state key="normal" title="とうろく"/>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="aX9-Ff-tSU" eventType="touchUpInside" id="6EQ-aH-qSl"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="TransitionToMap" modalPresentationStyle="fullScreen" id="Y3s-vO-cZT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdd-sn-FYX">
+                                <rect key="frame" x="20" y="64" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cdd-sn-FYX" secondAttribute="height" multiplier="3:1" id="HQr-H1-EgD"/>
+                                </constraints>
+                                <state key="normal" title="もどる"/>
+                                <connections>
+                                    <action selector="tappedBackButton:" destination="aX9-Ff-tSU" eventType="touchUpInside" id="CyV-Kd-TL2"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fdD-Qd-cVR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cdd-sn-FYX" firstAttribute="leading" secondItem="fdD-Qd-cVR" secondAttribute="leading" constant="20" id="T4w-Uv-TLn"/>
                             <constraint firstItem="dQQ-N2-1k8" firstAttribute="centerX" secondItem="HZm-qV-dcm" secondAttribute="centerX" id="oxt-61-ZaS"/>
                             <constraint firstItem="fdD-Qd-cVR" firstAttribute="bottom" secondItem="dQQ-N2-1k8" secondAttribute="bottom" constant="70" id="pP7-m0-pZa"/>
+                            <constraint firstItem="cdd-sn-FYX" firstAttribute="top" secondItem="fdD-Qd-cVR" secondAttribute="top" constant="20" id="xtG-Jp-q99"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qha-bT-RVS"/>
                     <connections>
+                        <outlet property="backButton" destination="cdd-sn-FYX" id="XhJ-pv-ZYs"/>
                         <outlet property="registerButton" destination="dQQ-N2-1k8" id="ada-v8-EK1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YF6-HC-cew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="570"/>
+            <point key="canvasLocation" x="1886.9565217391305" y="569.86607142857144"/>
         </scene>
         <!--Information-->
         <scene sceneID="BzA-WQ-QRE">

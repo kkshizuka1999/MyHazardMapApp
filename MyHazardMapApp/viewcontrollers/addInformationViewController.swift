@@ -80,6 +80,15 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
         // Do any additional setup after loading the view.
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
+    // 回転方向の指定
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
         }
