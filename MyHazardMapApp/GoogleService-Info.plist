@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>157395926148-jtk0jir1erlpbp8eh69j9l9ojdua9bob.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.157395926148-jtk0jir1erlpbp8eh69j9l9ojdua9bob</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDIlUCD1fsq3qOdEoPX15OBQ4I-x6D_P3U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>157395926148</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>IKEchannel.MyHazardMapApp</string>
+	<key>PROJECT_ID</key>
+	<string>myhazardmap2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>myhazardmap2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:157395926148:ios:bebe8ab9a60c6b9d50d6d1</string>
+</dict>
+</plist>
