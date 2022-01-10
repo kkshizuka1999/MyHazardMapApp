@@ -5,19 +5,24 @@
 //  Created by IKEchannel on 2020/10/31.
 //
 
+//メイン画面
 import UIKit
 import GoogleMaps
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
+//各ボタンの機能実装
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     var idToSend: String!
     
+    //情報追加ボタンを配置
     @IBOutlet weak var addInformationButton: UIButton!
+    //ログアウトボタンを配置
     @IBOutlet weak var LogOutButton: UIButton!
     
+    //ログアウト機能の実装
     @IBAction func LogoutButtonTapped(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -36,12 +41,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var locationManager = CLLocationManager()
     lazy var mapView = GMSMapView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         setUpElements()
         
+        //現在地表示
         let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
         mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
         mapView.settings.myLocationButton = true
@@ -59,12 +65,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    //Firebaseからユーザが追加した情報を取得
     override func viewWillAppear(_ animated: Bool) {
         
         fetchUserInfoFromFirestore()
         super.viewWillAppear(animated)
         
     }
+    
     
     override var shouldAutorotate: Bool {
         return true
@@ -75,8 +83,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         return .portrait
     }
     
+    //Firebaseからの情報取得機能を実装
     private func fetchUserInfoFromFirestore() {
         
+        //取得先を指定
         Firestore.firestore().collection("informations").addSnapshotListener { (snapshots, err) in
             if let err = err {
                 print("informations情報の取得に失敗しました\(err)")
@@ -91,15 +101,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                     
                     self.informations.append(information)
                     
+                    //取得する情報を指定
                     self.informations.forEach { (information) in
                         
+                        //投稿ID
                         let postID = information.postID
+                        //Double型で緯度を取得
                         let doubleLatitude = Double(information.PlaceLatitude)
+                        //Double型で経度を取得
                         let doubleLongitude = Double(information.PlaceLongitude)
+                        //緯度経度を持つ構造体を生成
                         let position = CLLocationCoordinate2D(latitude: doubleLatitude ?? 0, longitude: doubleLongitude ?? 0)
+                        
+                        //positionを用いてマーカーを生成
                         let marker = GMSMarker(position: position)
+                        //UserIDを取得
                         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
                         
+                        //マーカーを表示
                         if information.userId == currentUserId {
                             
                             marker.title = postID
@@ -120,8 +139,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
+    //マーカーをタップした際
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
+        //投稿IDを保持し、情報確認画面へ遷移
         idToSend = marker.title
         
         self.performSegue(withIdentifier: "MarkerTaped", sender: nil)
@@ -130,6 +151,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MarkerTaped" {
             let vc = segue.destination as? InformationViewController
@@ -138,6 +160,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
+    //現在位置を表示
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation = locations.last
@@ -150,6 +173,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    //UIの規格を整理
     func setUpElements() {
         
         Utilities.styleAddInformationButton(addInformationButton)

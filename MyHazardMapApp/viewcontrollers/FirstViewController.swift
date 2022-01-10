@@ -9,8 +9,10 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    //ユーザー登録ボタン配置
     @IBOutlet weak var SignUpButton: UIButton!
     
+    //ログインボタン配置
     @IBOutlet weak var LoginButton: UIButton!
     
     
@@ -21,6 +23,7 @@ class FirstViewController: UIViewController {
         setUpElements()
     }
     
+    //UI設定
     func setUpElements() {
         
         Utilities.styleFilledButton(SignUpButton)
@@ -28,6 +31,7 @@ class FirstViewController: UIViewController {
         
     }
     
+    //画面の回転設定
     override var shouldAutorotate: Bool {
         return true
     }

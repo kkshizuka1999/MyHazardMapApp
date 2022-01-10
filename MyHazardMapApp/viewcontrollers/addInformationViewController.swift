@@ -38,30 +38,37 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
         
     }
     
+    //カメラボタンを押した際の動き
     @IBAction func CamButtonTapped(_ sender: Any) {
+        //カメラの起動
         imagePickerController.sourceType = .camera
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    //カメラロールボタンを押した時の動き
     @IBAction func LibButtonTapped(_ sender: Any) {
+        //カメラロールが起動
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    //戻るボタンを押したら前の画面へ遷移
     @IBAction func CancelButtonTapped(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
         
     }
     
+    //画像をiPhoneから取得するための設定
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         ImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
         dismiss(animated: true, completion: nil)
     }
     
+    //登録した情報を保持したまま次の画面へ遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushMapForAdd" {
             let vc = segue.destination as? mapForAddViewController
@@ -71,6 +78,7 @@ class addInformationViewController: UIViewController, UINavigationControllerDele
             vc?.information = TextView.text
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -5,10 +5,12 @@
 //  Created by IKEchannel on 2020/11/07.
 //
 
+//ログイン画面
 import UIKit
 import FirebaseAuth
 import Firebase
 
+//各種ボタンやフィールドの配置
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var EmailTextField: UITextField!
@@ -27,12 +29,13 @@ class LoginViewController: UIViewController {
         setUpElements()
     }
     
+    //UI整理
     func setUpElements() {
         
-        //Hide the error label
+        //エラーラベルを隠す
         ErrorLabel.alpha = 0
         
-        // Style the elements
+        // 各種設定
         Utilities.styleTextField(EmailTextField)
         Utilities.styleTextField(PasswordTextField)
         Utilities.styleFilledButton(LoginButton)
@@ -51,9 +54,10 @@ class LoginViewController: UIViewController {
     
     func validateFiedls() -> String? {
         
-        //Check that all fields are filled in
+        //全ての項目が入力されているか確認
         if EmailTextField.text?.trimmingCharacters(in: .whitespaces) == "" || PasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
+            //されてなかったらエラーを返す
             return "Please fill in all fields."
             
         }
@@ -62,6 +66,7 @@ class LoginViewController: UIViewController {
         
     }
     
+    //画面回転の設定
     override var shouldAutorotate: Bool {
         return true
     }
@@ -71,14 +76,14 @@ class LoginViewController: UIViewController {
         return .portrait
     }
     
-    
+    //ログインボタンがタップされてからの動き
     @IBAction func LoginTaped(_ sender: Any) {
         
-        //validate text fields
+        //項目が全て入っているか確認
         
         let error = validateFiedls()
 
-        //There is something wrong with the fields, show error message
+        //項目に不備があればエラーを返す
         if error != nil {
             
             ErrorLabel.text = error!
@@ -86,22 +91,23 @@ class LoginViewController: UIViewController {
             
         } else {
             
-            //create cleaned versions of the data
+            //Firebaseに投げる情報を定義
             let email = EmailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = PasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            //signing in the user
+            //サインイン（入力情報とDB上の情報を照合）
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                 
                 if error != nil {
                     
-                    // Couldn't sign in
+                    // エラー処理
                     self.ErrorLabel.text = error!.localizedDescription
                     
                     self.ErrorLabel.alpha = 1
                     
                 } else {
                     
+                    //画面遷移
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mapViewController = storyboard.instantiateViewController(identifier: "MapVC") as? MapViewController
                     

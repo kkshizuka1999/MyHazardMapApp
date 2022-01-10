@@ -20,7 +20,8 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var ImageView: UIImageView!
     
     @IBOutlet weak var placename: UILabel!
-    
+  
+    //情報確認画面
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,16 +30,22 @@ class InformationViewController: UIViewController {
         textview.isEditable = false
         textview.isSelectable = false
         
+        //Firebaseからの情報取得先を指定
         Firestore.firestore().collection("informations").document(markerID ?? "").getDocument { (document, error) in
+            //項目指定
             if let document = document, document.exists {
+                //
                 let dataDescription = document.data()
                 let information = Information.init(dic: dataDescription ?? [:])
+                //登録画像取得
                 let url = URL(string: information.imageURL)
                 
                 Nuke.loadImage(with: url!, into: self.ImageView)
                 
+                //場所の名前を取得
                 self.placename.text = information.PlaceName
                 
+                //詳細情報を取得
                 self.textview.text = information.detailInformation
                 
             } else {

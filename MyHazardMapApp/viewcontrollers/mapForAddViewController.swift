@@ -5,6 +5,7 @@
 //  Created by IKEchannel on 2020/11/28.
 //
 
+//位置情報登録画面
 import UIKit
 import GoogleMaps
 import Firebase
@@ -23,11 +24,12 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    //戻るボタンの設定
     @IBAction func tappedBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    
+    //登録ボタンが押されたらsavetofirestoreを呼び出す
     @IBAction func registerButtonTapped(_ sender: Any) {
         
         saveToFireStore()
@@ -49,6 +51,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
         setUpElements()
         
+        //マップと現在位置の表示
         let camera = GMSCameraPosition.camera(withLatitude: 37.3318, longitude: -122.0312, zoom: 17.0)
         mapView = GMSMapView.map(withFrame: CGRect(origin: .zero, size: view.bounds.size), camera: camera)
         mapView.isMyLocationEnabled = true
@@ -73,7 +76,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         return .portrait
     }
     
-    
+    //長押しするとマーカーが表示され、緯度経度の情報を取得する
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         mapView.clear()
         let marker = GMSMarker(position: coordinate)
@@ -95,6 +98,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
     }
     
+    //UI設定
     func setUpElements() {
         
         Utilities.styleFilledButton(registerButton)
@@ -102,6 +106,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
     }
     
+    //Firebase上へ画像を保存
     fileprivate func upload(completed: @escaping(_ url: String?) -> Void) {
         let date = NSDate()
         let currentTimeStampInSecond = UInt64(floor(date.timeIntervalSince1970 * 1000))
@@ -125,12 +130,15 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         }
     }
     
+    //登録する項目を指定や保存先を指定
     fileprivate func saveToFireStore(){
         var Image_URL = img_url
         let detailInformation = information
         let PlaceName = placeName
         let markerLatitude = latitude
         let markerLongitude = longitude
+        
+        //UserIDと照合してから、各項目をDB上に登録
         guard let userID = Auth.auth().currentUser?.uid else { return }
         upload(){ url in
             guard let url = url else { return }
@@ -155,6 +163,7 @@ class mapForAddViewController: UIViewController, CLLocationManagerDelegate, GMSM
         }
     }
     
+    //画面遷移の方法設定
     func transitionToMap() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
